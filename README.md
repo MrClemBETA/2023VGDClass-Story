@@ -3,3 +3,5 @@ This repository is used to store the story and dialogue files for the Video Game
 
 ## Collaborators
 - Salim Rizk
+- Anthony Clemetson
+- Giovanny Vibanco
