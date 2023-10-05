@@ -6,3 +6,4 @@ This repository is used to store the story and dialogue files for the Video Game
 - Giovanny Vibanco
 - Anthony Clemetson
 - Tyler Lynch
+- Fredy Parra
