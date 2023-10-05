@@ -3,6 +3,8 @@ This repository is used to store the story and dialogue files for the Video Game
 
 ## Collaborators
 - Oliver Marshall
+- Fredy Parra
+- Tyler Lynch
 - Anthony Clemetson
 - Giovanny Vibanco
 
