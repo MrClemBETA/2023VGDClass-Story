@@ -4,6 +4,7 @@ This repository is used to store the story and dialogue files for the Video Game
 ## Collaborators
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Jalen Torrientes
 - Giovanny Vibanco
 - Anthony Clemetson
@@ -18,3 +19,10 @@ This repository is used to store the story and dialogue files for the Video Game
 - Anthony Clemetson
 - Giovanny Vibanco
 >>>>>>> develop
+=======
+- Benjamin Munoz
+- Giovanny Vibanco
+- Anthony Clemetson
+- Tyler Lynch
+- Fredy Parra
+>>>>>>> 7181688246a8356f0e6471017a1860dc10980cee
