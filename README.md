@@ -4,6 +4,7 @@ This repository is used to store the story and dialogue files for the Video Game
 ## Collaborators
 - Benjamin Munoz
 - Giovanny Vibanco
-- Anthony Clemetson
-- Tyler Lynch
+- Salim Rizk
 - Fredy Parra
+- Tyler Lynch
+- Anthony Clemetson
