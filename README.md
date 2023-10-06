@@ -3,7 +3,11 @@ This repository is used to store the story and dialogue files for the Video Game
 
 ## Collaborators
 - Tom Phan
-- Giovanny Vibanco
-- Anthony Clemetson
 - Tyler Lynch
-
+- Kaiden Ho
+- Anthony Clemetson
+- Giovanny Vibanco
+- Benjamin Munoz
+- Salim Rizk
+- Fredy Parra
+- Tyler Lynch
