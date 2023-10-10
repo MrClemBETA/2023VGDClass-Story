@@ -1,0 +1,214 @@
+:: StoryTitle
+Andrews Adventure Main Storyboards
+
+
+:: StoryData
+{
+  "ifid": "1C5BA4CF-1290-4200-A711-A21ADDA5B99F",
+  "format": "Harlowe",
+  "format-version": "3.3.7",
+  "start": "The Beginning",
+  "zoom": 1
+}
+
+
+:: \ Don't Let Johnathan Sacrifice Himself {"position":"3200,3000","size":"100,100"}
+Andrew yoinks (text-colour:orange)[Johnathan] and takes him back to Maria, and they get back together.
+
+Great Ending
+
+
+:: \ Don't let her join {"position":"2800,2400","size":"100,100"}
+She leaves and becomes an enemy for later but for now uh oh
+
+[[Captured by Osiris with Lateef]]
+
+
+:: \ Don't let her join him {"position":"3200,2400","size":"100,100"}
+She leaves and becomes an enemy for later but for now uh oh
+
+[[Captured by Osiris alone]]
+
+
+:: \ Don't let him join {"position":"3100,2100","size":"100,100"}
+Lateef is enemy now and will reappear later
+
+[[Babi battle solo]]
+
+
+:: Babi Battle with lateef {"position":"2900,2300","size":"100,100"}
+Andrew and (text-colour:cyan)[Lateef] curb stomp the monkey and (text-colour:green)[Meresankh] comes running
+
+(text-colour:green)[Hi hello let me help you please]
+
+Now player has another choice
+
+[[Let her join ]] or [[ Don't let her join]]
+
+
+:: Babi battle solo {"position":"3300,2300","size":"100,100"}
+Andrew curb stomps the monkey and (text-colour:green)[Meresankh] comes running
+
+(text-colour:green)[Hi hello let me help you please]
+
+Now player has another choice
+
+[[Let her join him ]] or [[ Don't let her join him]]
+
+
+:: Beat up Culpa {"position":"3100,2900","size":"100,100"}
+Everyone beats up (text-colour:magenta)[Culpa] and (text-colour:orange)[Johnathan] helps but now the ruins are collapsing but (text-colour:orange)[Johnathan] wants to sacrifice himself to kill the demon now you have a choice
+
+[[Let Johnathan Sacrifice Himself	]] or [[	Don't Let Johnathan Sacrifice Himself]]
+
+
+:: Beat up Johnathan as a team {"position":"3000,2800","size":"100,100"}
+Everyone beats up (text-colour:orange)[Johnathan] as a team but uh oh (text-colour:magenta)[Culpa], (text-colour:orange)[Johnathan]'s demon comes out to play, now it's time to [[Beat up Culpa]]
+
+
+:: Beat up Johnathan by himself {"position":"3200,2800","size":"100,100"}
+Andrew gets the amulet and goes back home with (text-colour:orange)[Johnathan] but he breaks the amulet, leading to a loss of love everywhere
+
+Bad Ending
+
+
+:: Captured by Osiris alone {"position":"3200,2500","size":"100,100"}
+Uh oh now Andrew's gotta escape but uh oh (text-colour:cyan)[Lateef (if summoned)] and (text-colour:green)[Meresankh] are helping Osiris
+
+Doesn't matter as they both get curb stomped anyway
+
+Now onto the protector of the amulet
+
+[[Cleopatra Battle Solo]]
+
+
+:: Captured by Osiris with Lateef {"position":"2800,2500","size":"100,100"}
+Uh oh now Andrew's gotta escape with (text-colour:cyan)[Lateef] but uh oh (text-colour:green)[Meresankh] is helping Osiris
+
+Doesn't matter as they both get curb stomped anyway but whats this
+
+The rock is back and is very angry
+
+[[Rock Battle With Lateef]]
+
+
+:: Captured by Osiris with Meresankh {"position":"3400,2500","size":"100,100"}
+Uh oh now Andrew's gotta escape with (text-colour:green)[Meresankh] but uh oh (text-colour:cyan)[Lateef (if summoned)] is helping Osiris
+
+Doesn't matter as they both get curb stomped anyway
+
+Now onto the protector of the amulet
+
+[[Cleopatra Battle With Meresankh]] 
+
+
+:: Captured by Osiris with the other two {"position":"3000,2500","size":"100,100"}
+Uh oh now Andrew's gotta escape with (text-colour:cyan)[Lateef] and (text-colour:green)[Meresankh]
+
+Doesn't matter as he gets curb stomped anyway but whats this
+
+The rock is back and is very angry
+
+[[Rock Battle with the other two]]
+
+
+:: Cleopatra Battle Solo {"position":"3200,2700","size":"100,100"}
+(text-colour:yellow)[Cleopatra] guards the amulet fiercely
+
+Doesn't matter as she is curb stomped anyway
+
+Right before Andrew takes it (text-colour:orange)[Johnathan] snatches it and runs
+
+Uh oh now it's time to [[Beat up Johnathan by himself]]
+
+
+:: Cleopatra Battle With Lateef {"position":"2800,2700","size":"100,100"}
+(text-colour:yellow)[Cleopatra] guards the amulet fiercely
+
+Doesn't matter as she is curb stomped anyway
+
+Andrew gets the amulet and goes back home and gives it to Maria who then uses it and Johnathan comes back to her yay 
+
+Good Ending
+
+
+:: Cleopatra Battle With Meresankh {"position":"3400,2700","size":"100,100"}
+(text-colour:yellow)[Cleopatra] guards the amulet fiercely
+
+Doesn't matter as she is curb stomped anyway
+
+Andrew gets the amulet and goes back home and gives it to Maria who then uses it and Johnathan comes back to her yay 
+
+Good Ending
+
+
+:: Cleopatra Battle With The Other Two {"position":"3000,2700","size":"100,100"}
+(text-colour:yellow)[Cleopatra] guards the amulet fiercely
+
+Doesn't matter as she is curb stomped anyway
+
+Right before Andrew takes it (text-colour:orange)[Johnathan] snatches it and runs
+
+Uh oh now it's time to [[Beat up Johnathan as a team]]
+
+
+:: Don't summon Lateef {"position":"3300,1900","size":"100,100"}
+Skips everything and goes straight into [[Babi battle solo]] 
+
+
+:: Let Johnathan Sacrifice Himself\  {"position":"3000,3000","size":"100,100"}
+(text-colour:orange)[Johnathan] kills the demon and sacrifices himself, leading couples who've lost love to come back and try again
+
+Canon ending
+
+
+:: Let her join\  {"position":"3000,2400","size":"100,100"}
+She joins the party and everyone is very happy but uh oh you've been
+
+[[Captured by Osiris with the other two]]
+
+
+
+
+
+
+:: Let her join him\  {"position":"3400,2400","size":"100,100"}
+She joins the party but uh oh they've been 
+
+[[Captured by Osiris with Meresankh]] 
+
+
+:: Let him join\  {"position":"2900,2200","size":"100,100"}
+Lateef is in party
+
+(text-colour:cyan)[yay]
+
+Practice on rock, yay now [[Babi Battle with lateef]]
+
+
+:: Rock Battle With Lateef {"position":"2800,2600","size":"100,100"}
+The rock gets curb stomped now onto the protector of the amulet
+
+[[Cleopatra Battle With Lateef]]
+
+
+:: Rock Battle with the other two {"position":"3000,2600","size":"100,100"}
+The rock gets curb stomped now onto the protector of the amulet
+
+[[Cleopatra Battle With The Other Two]] 
+
+
+:: Summon Lateef {"position":"2900,1900","size":"100,100"}
+Lateef is summoned
+
+(text-colour:cyan)[Hi helo]
+
+Now the player has a choice
+
+[[Let him join ]] or [[ Don't let him join]]
+
+
+:: The Beginning {"position":"3100,1800","size":"100,100"}
+Exposition, Andrew rolls up to the pyramids and has a choice
+
+[[Summon Lateef]] or [[Don't summon Lateef]]
