@@ -1,0 +1,584 @@
+:: StoryTitle
+The Puppetmaster Fight
+
+
+:: StoryData
+{
+  "ifid": "A2031DCD-DA02-4BD9-869E-EFC563B7BED4",
+  "format": "Harlowe",
+  "format-version": "3.3.7",
+  "start": "Verum principium",
+  "zoom": 1
+}
+
+
+:: ... {"position":"400,2100","size":"100,100"}
+(text-colour:#1971c2)["Foolish little puppet... You cannot function without your strings. Let me fix you."]
+
+(text-colour:#1971c2)[The Puppetmaster] picks up Andrew's body, and starts reattaching his strings. Andrew slowly comes back to life.
+
+"What happened..?"
+
+(text-colour:#1971c2)["You cut your strings. But a puppet can't work without it's strings."]
+
+"...alright. I'll play your game."
+
+(text-colour:#1971c2)["Excellent. You made the right choice. $yourName, I bestow upon you the Puppet's Cloak. When Andrew wears this, you'll unlock the secret ending. Goodbye."]
+
+
+:: ??? {"position":"400,2000","size":"100,100"}
+You don't know what to do... so you do nothing.
+
+
+:: A secret object {"position":"500,300","size":"100,100"}
+(text-colour:#1971c2)["You want the best ending, hmm? Well, it won't come easy to you. You must defeat me in a fight."]
+
+You can hear Andrew still whimpering and crying.
+
+(text-colour:#1971c2)["Doesn't seem like you'll be able to control Andrew... No matter, I have a plan. What is your name?"]
+
+(input: bind $yourName)
+
+[[That is my name.]]
+
+
+:: Andrew's Turn {"position":"700,1400","size":"100,100"}
+(if:$timesTalked is 1)["No. I refuse to be some part of a game. Maria... David... they're all counting on me. I can't be part of your games. I reject your control over me.
+
+[[Command Menu - Andrew Battle]]](else-if:$timesTalked is 2)["Is that all you can do? Can't reply to me? Don't know why I must be a simple puppet on strings? I won't allow you to control me any longer."
+
+[[Command Menu - Andrew Battle]]](else-if:$timesTalked is 3)["Do you see these strings above me?! I will cut them, ending your control over me! I will be a free man, destined for whatever I desire. Goodbye, you monstrous beings who exploit others for their own gain."
+
+He cuts his strings... 
+
+And falls. 
+
+[[...]] ]
+
+(set:$timesTalked to $timesTalked + 1)
+
+
+:: Attack Up {"position":"200,1800","size":"100,100"}
+Your attack increases!
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$attackUpReady to false)(set:$attackUpTimer to 4)
+
+
+:: AttackUp {"position":"200,800","size":"100,100"}
+(set:$attackUpChosen to true)(text-colour:#1971c2)["Very well. Are you happy with your choices?"]
+
+[[Yes, I am.]]
+[[No, I'm not]]
+
+(set:$attackUp to 10)
+
+
+:: Bring us back {"position":"300,100","size":"100,100"}
+(text-colour:#1971c2)["Very well then. Goodbye, Andrew. Goodbye, the one who's pulling his strings."]
+
+Back at the ruins, that shook Andrew to his core.
+
+
+:: Command Menu - Andrew Battle {"position":"700,1300","size":"100,100"}
+Andrew's HP: ???
+Your HP: $yourHP
+Your Actions: 
+[[???]]
+
+
+:: Command Menu - Levy the Lamia Battle {"position":"300,1300","size":"100,100"}
+(if:$enemyHP > 0)[(text-colour:#c2255c)[$enemy's HP: $enemyHP]
+Your HP: $yourHP
+Your Actions: (if:$coiled is false)[
+(if:$normalAttackChosen is true)[[Normal Attack]](if:$weakeningAttackChosen is true)[[Weakening Attack]](if:$healingAttackChosen is true)[[Healing Attack]](if:$poisonAttackChosen is true)[[Poisoning Attack]](if:$doublingAttackChosen is true)[[Doubling Attack]]
+(if:$attackUpChosen is true)[[Attack Up]](if:$defenseUpChosen is true)[[Defense Up]](if:$healChosen is true)[[Heal]](if:$luckyFeelingChosen is true)[[Lucky Feeling]](if:$everythingUpChosen is true)[[Everything Up]]](else:)[[Struggle]]
+]
+(if:$attackUpTimer is 0)[Your attack buff ran out!]
+(if:$defenseUpTimer is 0)[Your defense buff ran out!]
+
+
+:: Command Menu - Robyn Battle {"position":"500,1300","size":"100,100"}
+(if:$andrewPresent is false)[(if:$headpatCount < 5)[(text-colour:#fd80ff)[Enemy HP: +inf]
+Your HP: $yourHP
+Your Actions: 
+(if:$normalAttackChosen is true)[[Normal Attack]](if:$weakeningAttackChosen is true)[[Weakening Attack]](if:$healingAttackChosen is true)[[Healing Attack]](if:$poisonAttackChosen is true)[[Poisoning Attack]](if:$doublingAttackChosen is true)[[Doubling Attack]]
+(if:$attackUpChosen is true)[[Attack Up]](if:$defenseUpChosen is true)[[Defense Up]](if:$healChosen is true)[[Heal]](if:$luckyFeelingChosen is true)[[Lucky Feeling]](if:$everythingUpChosen is true)[[Everything Up]]
+(if:$turnsTaken > 4)[This seems to be going nowhere...  what if you tried something else? 
+[[Headpats]]]](else:)[Victory! (text-colour:#fd80ff)[$enemy] lost! $yourName won! [[Victory - Robyn Battle]]]](else:)[Andrew comes out of nowhere, punching the catgirl out of the way. He defeats her instantly, even in her gift of infinite power. Seems like the true final secret battle has begun.
+
+[[Command Menu - Andrew Battle]]
+
+(set:$timesTalked to 1)
+(set:$enemy to "Andrew")]
+
+
+:: Command Menu - TylerGaming101 Battle {"position":"100,1300","size":"100,100"}
+(if:$enemyHP > 0)[(text-colour:#f08c00)[$enemy's HP: $enemyHP]
+Your HP: $yourHP
+Your Actions: 
+(if:$normalAttackChosen is true)[[Normal Attack]](if:$weakeningAttackChosen is true)[[Weakening Attack]](if:$healingAttackChosen is true)[[Healing Attack]](if:$poisonAttackChosen is true)[[Poisoning Attack]](if:$doublingAttackChosen is true)[[Doubling Attack]]
+(if:$attackUpChosen is true)[[Attack Up]](if:$defenseUpChosen is true)[[Defense Up]](if:$healChosen is true)[[Heal]](if:$luckyFeelingChosen is true)[[Lucky Feeling]](if:$everythingUpChosen is true)[[Everything Up]]]
+
+(if:$attackUpTimer is 0)[Your attack buff ran out!]
+(if:$defenseUpTimer is 0)[Your defense buff ran out!]
+
+
+:: Defense Up {"position":"300,1800","size":"100,100"}
+Your defense increases!
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$defenseUpReady to false)(set:$defenseUpTimer to 4)
+
+
+:: DefenseUp {"position":"300,800","size":"100,100"}
+(set:$defenseUpChosen to true)(text-colour:#1971c2)["Very well. Are you sure with your choices?"]
+
+[[Yes, I am.]]
+[[No, I'm not]]
+
+(set:$defenseUp to 10)
+(set:$defenseUpTimer to 3)
+(set:$attackUpTimer to -1)
+
+
+:: Doubling Attack {"position":"600,1700","size":"100,100"}
+(if:$enemy is "TylerGaming101")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#f08c00)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#f08c00)[$enemy] takes $damageDealt damage!]](if:$enemy is "Levy the Lamia")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#c2255c)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#c2255c)[$enemy] takes $damageDealt damage!]](if:$enemy is "Robyn")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#fd80ff)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#fd80ff)[$enemy] takes $damageDealt damage!]]
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+
+(set:$yourAttack to $yourAttack * 2)
+
+
+:: DoublingAttack {"position":"600,600","size":"100,100"}
+(set:$doublingAttackChosen to true)(text-colour:#1971c2)["A doubling attack? Very well. Now what about your buff?"]
+
+[[AttackUp]] (Increases your damage by 10 for 3 turns. Doesn't stack with your chosen attack.)
+[[DefenseUp]] (Reduces taken damage by 10 for 3 turns.)
+[[HeaI]] (Heals you by 20 HP)
+[[LuckyFeeling]] (???)
+[[EverythingUp]] (Increases your damage and reduces taken damage by 5 for 3 turns. Doesn't stack.)
+
+(set:$yourAttack to 1)
+
+
+:: Everything Up {"position":"600,1800","size":"100,100"}
+Your attack and defense increases!
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$attackUpReady to false)(set:$attackUpTimer to 4)
+(set:$defenseUpReady to false)(set:$defenseUpTimer to 4)
+
+
+:: EverythingUp {"position":"600,800","size":"100,100"}
+(set:$everythingUpChosen to true)(text-colour:#1971c2)["Very well. Are you sure with your choices?"]
+
+[[Yes, I am.]]
+[[No, I'm not]]
+
+(set:$attackUp to 5)
+(set:$defenseUp to 5)
+(set:$attackUpTimer to 3)
+(set:$defenseUpTimer to 3)
+(set:$attackUpReady to true)
+(set:$defenseUpReady to true)
+
+
+:: HeaI {"position":"400,800","size":"100,100"}
+(set:$healChosen to true)(text-colour:#1971c2)["Very well. Are you sure with your choices?"]
+
+[[Yes, I am.]]
+[[No, I'm not]]
+
+(set:$heal to 10)
+
+
+:: Headpats {"position":"600,1900","size":"100,100"}
+You give (text-colour:#fd80ff)[$enemy] headpats! She nuzzles into the pats, and forgets that it's her turn to attack!
+
+[[Command Menu - Robyn Battle]] 
+
+(set:$headpatCount to $headpatCount + 1)
+
+
+:: Heal {"position":"400,1800","size":"100,100"}
+You heal yourself for 10 HP!
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$yourHP to $yourHP + $heal)
+
+
+:: Healing Attack {"position":"400,1700","size":"100,100"}
+(if:$enemy is "TylerGaming101")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))(set:$damageDealt to ($yourAttack + $attackUp))You attack! (text-colour:#f08c00)[$enemy] takes $damageDealt damage, and you are healed for (round:$damageDealt/4) HP.](else-if:$attackUpReady is true)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#f08c00)[$enemy] takes $yourAttack damage, and you are healed for (round:$damageDealt/4) HP.]](if:$enemy is "Levy the Lamia")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))(set:$damageDealt to ($yourAttack + $attackUp))You attack! (text-colour:#c2255c)[$enemy] takes $damageDealt damage, and you are healed for (round:$damageDealt/4) HP.](else-if:$attackUpReady is true)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#c2255c)[$enemy] takes $yourAttack damage, and you are healed for (round:$damageDealt/4) HP.]](if:$enemy is "Robyn")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))(set:$damageDealt to ($yourAttack + $attackUp))You attack! (text-colour:#fd80ff)[$enemy] takes $damageDealt damage, and you are healed for (round:$damageDealt/4) HP.](else-if:$attackUpReady is true)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#fd80ff)[$enemy] takes $yourAttack damage, and you are healed for (round:$damageDealt/4) HP.]]
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$yourHP to $yourHP + (round:$damageDealt/4))
+
+
+:: HealingAttack {"position":"400,600","size":"100,100"}
+(set:$healingAttackChosen to true)(text-colour:#1971c2)["A healing attack? Very well. Now what about your buff?"]
+
+[[AttackUp]] (Increases your damage by 10 for 3 turns.)
+[[DefenseUp]] (Reduces taken damage by 10 for 3 turns.)
+[[HeaI]] (Heals you by 10 HP)
+[[LuckyFeeling]] (???)
+[[EverythingUp]] (Increases your damage and reduces taken damage by 5 for 3 turns)
+
+(set:$yourAttack to 8)
+(set:$yourAttackHeal to 2)
+
+
+:: I am ready {"position":"200,1600","size":"100,100"}
+(text-colour:#1971c2)["Your next opponent is (text-colour:#c2255c)[$enemy] She is a guardian of Mystic Woods."]
+
+(text-colour:#c2255c)["I will not fail you. Human, prepare to be defeated!"]
+
+[[Command Menu - Levy the Lamia Battle]]
+
+
+:: I came here on purpose {"position":"500,100","size":"100,100"}
+(text-colour:#1971c2)["Oh? Andrew seems confused... he hears your voice as well. Isn't that funny, Andrew?"]
+
+"Wh- wha- huh- h-"
+
+(text-colour:#1971c2)["Don't worry, my puppet. It was hard on them, too. Player, should I spare him and send him back up there? I think I know why you're here,"]
+
+[[Send Andrew back up]]
+[[Keep Andrew down here]]
+
+
+:: Keep Andrew down here {"position":"600,200","size":"100,100"}
+(text-colour:#1971c2)["Alright then. Now, why are you here, player?"]
+
+[[A secret object]] 
+[[Nevermind]] 
+
+(set:$andrewPresent to true)
+
+
+:: Levy the Lamia's Turn {"position":"300,1400","size":"100,100"}
+(if:$enemyHP > 0)[(if:$coiled is false)[(if:(random:1,5) is 5)[(set:$coiled to true)(text-colour:#a61e4d)[$enemy] coils you! You are unable to act until you break out!
+
+(text-colour:#a61e4d)["Hehehe..."]](else:)[(if:$defenseUpTimer <= 0)[(text-colour:#a61e4d)[$enemy] attacks! You take $enemyAttack damage!(set:$yourHP to $yourHP - $enemyAttack)](if:$defenseUpTimer > 0)[(text-colour:#a61e4d)[$enemy] attacks! You take (set:$damageTaken to $enemyAttack - $defenseUp)$damageTaken damage! (set:$yourHP to $yourHP - $damageTaken)]]](else:)[(text-colour:#a61e4d)[$enemy] constricts you! You take $levyCoilAttack damage! (set:$yourHP to $yourHP - $levyCoilAttack)]
+
+(if:$poisoned is true)[$enemy is damaged by the poison! She takes $poisoningAttackDamage damage! (set:$enemyHP to $enemyHP - $poisoningAttackDamage)
+
+][[Command Menu - Levy the Lamia Battle]]](else:)[Victory! $yourName won! (text-colour:#a61e4d)[$enemy] lost! 
+
+[[Victory - Levy the Lamia Battle]] ]
+
+
+:: Lucky Feeling {"position":"500,1800","size":"100,100"}
+(if:(random:1,10) is 1)[A lightning bolt strikes (text-colour:#f08c00)[$enemy! $enemy] takes $enemyHP damage!(set:$enemyHP to $enemyHP * 0)](else-if: is > 1 and < 5)[You are healed suddenly for 15 HP! (set:$yourHP to $yourHP +15)](else-if: is > 4 and < 8)[(text-colour:#f08c00)[$enemy] takes 15 damage! (set:$enemyHP to $enemyHP - 15)](else:)[Nothing happens...]
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+
+:: LuckyFeeling {"position":"500,800","size":"100,100"}
+(set:$luckyFeelingChosen to true)(text-colour:#1971c2)["Very well. Are you sure with your choices?"]
+
+[[Yes, I am.]]
+[[No, I'm not]]
+
+
+:: Nevermind {"position":"300,300","size":"100,100"}
+(text-colour:#1971c2)["Oh? Well then. Goodbye."]
+
+Back at the ruins, Andrew is shaken to his core.
+
+
+:: No, I'm not {"position":"0,700","size":"100,100"}
+(text-colour:#1971c2)["Very well. Let's try this again, what would you like your attack to be?"]
+
+[[NormalAttack]] (10 Attack, nothing else)
+[[WeakeningAttack]] (8 Attack, reduces my attack by 2)
+[[HealingAttack]] (8 Attack, heals you for 2)
+[[PoisoningAttack]] (4 Attack, deals 2 damage over time for 3 turns.)
+[[DoublingAttack]] (1 Attack, doubles damage each time it's used.)
+
+(set:$normalAttackChosen to false)
+(set:$weakeningAttackChosen to false)
+(set:$healingAttackChosen to false)
+(set:$poisoningAttackChosen to false)
+(set:$doublingAttackChosen to false)
+
+(set:$attackUpChosen to false)
+(set:$defenseUpChosen to false)
+(set:$healChosen to false)
+(set:$healOverTimeChosen to false)
+(set:$everythingUpChosen to false)
+
+
+:: Normal Attack {"position":"200,1700","size":"100,100"}
+(if:$enemy is "TylerGaming101")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#f08c00)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)
+You attack! (text-colour:#f08c00)[$enemy] takes $damageDealt damage!]]
+(if:$enemy is "Levy the Lamia")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#c2255c)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)
+You attack! (text-colour:#c2255c)[$enemy] takes $damageDealt damage!]](if:$enemy is "Robyn")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#fd80ff)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)
+You attack! (text-colour:#fd80ff)[$enemy] takes $damageDealt damage!]]
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+
+:: NormalAttack {"position":"200,600","size":"100,100"}
+(set:$normalAttackChosen to true)(text-colour:#1971c2)["A normal attack? Very well. Now what about your buff?"]
+
+[[AttackUp]] (Increases your damage by 10 for 3 turns.)
+[[DefenseUp]] (Reduces taken damage by 10 for 3 turns.)
+[[HeaI]] (Heals you by 20 HP)
+[[LuckyFeeling]] (???)
+[[EverythingUp]] (Increases your damage and reduces taken damage by 5 for 3 turns)
+
+(set:$yourAttack to 10)
+
+
+:: Not really {"position":"500,1900","size":"100,100"}
+(text-colour:#1971c2)["No? Do not worry, $yourName. You only have one opponent left. Shall we continue?"]
+
+[[Yep.]]
+
+
+:: Poisoning Attack {"position":"500,1700","size":"100,100"}
+(if:$enemy is "TylerGaming101")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#f08c00)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#f08c00)[$enemy] takes $damageDealt damage!](set:$poisoningAttackDamage to $poisoningAttackDamage + 2) (set:$poisoned to true)](if:$enemy is "Levy the Lamia")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#c2255c)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#c2255c)[$enemy] takes $damageDealt damage!](if:$enemy is "Robyn")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#fd80ff)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#fd80ff)[$enemy] takes $damageDealt damage!](set:$poisoningAttackDamage to $poisoningAttackDamage + 2) (set:$poisoned to true)](set:$poisoningAttackDamage to $poisoningAttackDamage + 2) (set:$poisoned to true)
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+
+:: PoisoningAttack {"position":"500,600","size":"100,100"}
+(set:$poisonAttackChosen to true)(text-colour:#1971c2)["A poisoning attack? Very well. Now what about your buff?"]
+
+[[AttackUp]] (Increases your damage by 10 for 3 turns.)
+[[DefenseUp]] (Reduces taken damage by 10 for 3 turns.)
+[[HeaI]] (Heals you by 20 HP)
+[[LuckyFeeling]] (???)
+[[EverythingUp]] (Increases your attack and reduces damage by 5 for 3 turns)
+
+(set:$yourAttack to 4)
+(set:$poisoningAttackDamage to 0)
+(set:$poisoned to false)
+
+
+:: Robyn's Turn {"position":"500,1400","size":"100,100"}
+Robyn attacks! You take 5 damage!
+
+(set:$yourHP to $yourHP - 5)(set:$turnsTaken to $turnsTaken + 1)[[Command Menu - Robyn Battle]]
+
+
+:: Send Andrew back up {"position":"400,200","size":"100,100"}
+(text-colour:#1971c2)["Very well. Goodbye, Andrew. We will see you soon."]
+
+Andrew vanishes from view.
+
+(text-colour:#1971c2)["Now then, player. Why are you here?"]
+
+[[A secret object]]
+[[Nevermind]]
+
+(set:$andrewPresent to false)
+
+
+:: Somewhat {"position":"400,1900","size":"100,100"}
+(text-colour:#1971c2)["Oh? Alright then, shall we continue? You have one opponent left."]
+
+[[Yep.]]
+
+
+:: Struggle {"position":"200,1900","size":"100,100"}
+(if:(random:1,5) is 5)[You break free! (set:$coiled to false)](else:)[You fail to break out...]
+
+(if:$coiled is false)[ [[Command Menu - Levy the Lamia Battle]] ](else:)[ [[Levy the Lamia's Turn]] ]
+
+
+:: That is my name. {"position":"400,400","size":"100,100"}
+(if:$yourName is "")[(set:$yourName to "Anthony")](text-colour:#1971c2)["$yourName? That's a very... interesting name. I will give you the option to create your own moveset. So, what would you like as your attack? You already have a base of 50 HP."]
+
+[[NormalAttack]] (10 Attack, nothing else)
+[[WeakeningAttack]] (8 Attack, reduces my puppet's attack by 2)
+[[HealingAttack]] (8 Attack, heals you for 2)
+[[PoisoningAttack]] (8 Attack, deals 2 damage per turn. Stacks..)
+[[DoublingAttack]] (1 Attack, doubles damage each time it's used.)
+
+(set:$yourHP to 50)
+(set:$defenseUpReady to true)
+(set:$defenseUpReady to true)
+
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+
+(set:$attackUpTimer to -1)
+(set:$defenseUpTimer to -1)
+
+
+:: TylerGaming101's Turn {"position":"100,1400","size":"100,100"}
+(if:$enemyHP > 0)[(if:$enemyHP is not 50)+(if:(random:1,3) is 1)[(text-colour:#f08c00)[$enemy] rewound time, healing himself for $damageDealt HP! (set:$enemyHP to $enemyHP + $damageDealt)](else:)[(if:$defenseUpTimer <= 0)[(text-colour:#f08c00)[$enemy] attacks with The Sword of Time! You take $enemyAttack damage!(set:$yourHP to $yourHP - $enemyAttack)](if:$defenseUpTimer > 0)[(text-colour:#f08c00)[$enemy] attacks with The Sword of Time! You take (set:$damageTaken to $enemyAttack - $defenseUp)$damageTaken damage! (set:$yourHP to $yourHP - $damageTaken)]]
+
+(if:$poisoned is true)[$enemy is damaged by the poison! he takes $poisoningAttackDamage damage! (set:$enemyHP to $enemyHP - $poisoningAttackDamage)
+
+][[Command Menu - TylerGaming101 Battle]]](else:)[Victory! $yourName won! (text-colour:#f08c00)[$enemy] lost! 
+
+[[Victory - TylerGaming101 Battle]]]
+
+(set:$damageDealt to 0)
+(set:$damageTaken to 0)
+(set:$attackUpTimer to $attackUpTimer - 1)
+(set:$defenseUpTimer to $defenseUpTimer - 1)
+
+
+:: Verum principium {"position":"400,0","size":"100,100"}
+Andrew clips out of bounds and ends up in a strange black void...
+
+(text-colour:#1971c2)["Oho, my puppet has fallen, hasn't he? No matter... I'll help you get back up. Unless... you came here on purpose. Well?"]
+
+[[Bring us back]]
+[[I came here on purpose]]
+
+
+:: Victory - Levy the Lamia Battle {"position":"400,1500","size":"100,100"}
+(text-colour:#c2255c)[$enemy] collapses to the ground again.
+
+(text-colour:#c2255c)["I am sorry... I was not strong enough to defend..."]
+
+(text-colour:#1971c2)["Do not worry, lamia. You tried your best. Jason and Leslie will be very happy to see you."]
+
+(text-colour:#c2255c)[$enemy] fades from view.
+
+(text-colour:#1971c2)["Great job, $yourName. You have managed to defeat two of my puppets. Now tell me, was that fun?"]
+
+[[Yeah, it was]]
+[[Somewhat]]
+[[Not really]]
+
+(set:$yourHP to 50)
+(set:$defenseUpReady to true)
+(set:$defenseUpReady to true)
+
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+
+(set:$attackUpTimer to -1)
+(set:$defenseUpTimer to -1)
+
+(set:$doublingAttack to 1)
+(set:$poisoningAttackDamage to 2)
+
+(set:$enemy to "Robyn")
+(set:$enemyHP to -1)
+
+(set:$turnsTaken to 0)
+
+
+:: Victory - Robyn Battle {"position":"600,1500","size":"100,100"}
+(text-colour:#fd80ff)[$enemy] is laying down on the ground as you pet her, purring.
+
+(text-colour:#1971c2)["..."]
+
+(text-colour:#1971c2)["Really? Well then, I guess you've won. Here ya go."]
+
+You got the Puppet's Cloak!
+
+(text-colour:#1971c2)["Here's the item. Made from the strings I use myself. Put it on Andrew, and you'll unlock the secret endings as well as forget everything that has happened here. Good game, $yourName."]
+
+
+:: Victory - TylerGaming101 Battle {"position":"200,1500","size":"100,100"}
+(text-colour:#f08c00)[$enemy] collapses to the ground.
+
+(text-colour:#f08c00)["Puppetmaster... I have failed you."]
+
+(text-colour:#1971c2)["No, my puppet... don't think of it like that. You tried your best, and have grown stronger because of it. Goodbye."]
+
+(text-colour:#f08c00)[$enemy] fades from view.
+
+(text-colour:#1971c2)["You have defeated him. Good job, however there are still two more left. Are you ready?"]
+
+[[I am ready]]
+
+(set:$yourHP to 50)
+(set:$defenseUpReady to true)
+(set:$defenseUpReady to true)
+
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+(set:$attackUpTimer to 0)
+(set:$defenseUpTimer to 0)
+
+(set:$attackUpTimer to -1)
+(set:$defenseUpTimer to -1)
+
+(set:$doublingAttack to 1)
+(set:$poisoningAttackDamage to 2)
+
+(set:$enemy to "Levy the Lamia")
+(set:$enemyHP to 100)
+(set:$enemyAttack to 10)
+(set:$levyCoilAttack to 5)
+(set:$coiled to false)
+
+
+:: Weakening Attack {"position":"300,1700","size":"100,100"}
+(if:$enemy is "TylerGaming101")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#f08c00)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage! His attack is lowered by $weakeningAttackLower!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#f08c00)[$enemy] takes $damageDealt damage! His attack is lowered by $weakeningAttackLower!]](if:$enemy is "Levy the Lamia")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#c2255c)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage! Her attack is lowered by $weakeningAttackLower!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#c2255c)[$enemy] takes $damageDealt damage! Her attack is lowered by $weakeningAttackLower!]](if:$enemy is "Robyn")[(if:$attackUpReady is false)[(set:$enemyHP to $enemyHP - ($yourAttack + $attackUp))You attack! (text-colour:#fd80ff)[$enemy] takes (set:$damageDealt to $yourAttack + $attackUp) $damageDealt damage! Her attack is lowered by $weakeningAttackLower!](else:)[(set:$enemyHP to $enemyHP - $yourAttack)(set:$damageDealt to $yourAttack)You attack! (text-colour:#fd80ff)[$enemy] takes $damageDealt damage! Her attack is lowered by $weakeningAttackLower!]]
+
+(if:$enemy is "TylerGaming101")[ [[TylerGaming101's Turn]] ](else-if: is "Levy the Lamia")[ [[Levy the Lamia's Turn]] ](else-if: is "Robyn")[ [[Robyn's Turn]] ](else:)[ [[Andrew's Turn]] ]
+
+(set:$enemyAttack to $enemyAttack - $weakeningAttackLower)
+
+
+:: WeakeningAttack {"position":"300,600","size":"100,100"}
+(set:$weakeningAttackChosen to true)(text-colour:#1971c2)["A weakening attack? Very well. Now what about your buff?"]
+
+[[AttackUp]] (Increases your damage by 10 for 3 turns.)
+[[DefenseUp]] (Reduces taken damage by 10 for 3 turns.)
+[[HeaI]] (Heals you by 20 HP)
+[[LuckyFeeling]] (???)
+[[EverythingUp]] (Increases your damage and reduces taken damage by 5 for 3 turns)
+
+(set:$yourAttack to 8)
+(set:$weakeningAttackLower to 2)
+
+
+:: Yeah, it was {"position":"300,1900","size":"100,100"}
+(text-colour:#1971c2)["Excellent. Shall we continue? You have one opponent left."]
+
+[[Yep.]]
+
+
+:: Yep. {"position":"400,1600","size":"100,100"}
+(text-colour:#1971c2)["Your next opponent is a catgirl named Robyn. Don't ask, please. I'm already out of all recognizable characters."]
+
+(text-colour:#fd80ff)["Hello!"]
+
+(text-colour:#1971c2)["Of course, how is a lowly neko supposed to defeat eldrich beings as us? I'll be powering her up for this fight."]
+
+(text-colour:#fd80ff)[Robyn] becomes extremely powerful!
+
+(text-colour:#fd80ff)["Hehehe! Prepare to loose, human!"]
+
+[[Command Menu - Robyn Battle]]
+
+
+:: Yes, I am. {"position":"400,1000","size":"100,100"}
+(text-colour:#1971c2)["Excellent. I'll have you fight some of my puppets. Are you ready to begin?"]
+
+[[Yes.]]
+
+
+:: Yes. {"position":"400,1100","size":"100,100"}
+(text-colour:#1971c2)["Your first opponent is TylerGaming101. He is a YouTuber whom I control. I have brought him here from the TYLERVERSE... or whatever he calls it. He is excited for a challenge. Here he is now."]
+
+(text-colour:#f08c00)["Let's do this!"]
+
+(text-colour:#1971c2)["Excited as ever, I see... maybe if you win, I'll grant you the freedom you so crave."]
+
+[[Command Menu - TylerGaming101 Battle]]
+
+(set:$enemy to "TylerGaming101")
+(set:$enemyHP to 50)
+(set:$enemyAttack to 15)
