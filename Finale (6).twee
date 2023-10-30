@@ -1,0 +1,353 @@
+:: StoryTitle
+Finale
+
+
+:: StoryData
+{
+  "ifid": "618D8DFC-29BC-4C91-9F90-229736E26BC6",
+  "format": "Harlowe",
+  "format-version": "3.3.7",
+  "start": "The Finale...",
+  "zoom": 1
+}
+
+
+:: After-Aftermath {"position":"600,0","size":"100,100"}
+(text-colour:magenta)[Culpa lets out a demonic screech.] The ruins are shaking. (text-colour:orange)[Johnathan] takes out a sword and prepares to slay the demon, once and for all. However, he doesn't notice that if you all don't get out of here ''RIGHT NOW'', he will be crushed under the weight of the rocks. What do you do?
+
+[[Warn him]]
+[[Pull him away with you]]
+
+
+:: Aftermath {"position":"500,0","size":"100,100"}
+Collapsing to the ground, (text-colour:orange)[Johnathan] grasps his chest. 
+
+(text-colour:orange)["This mortal body not strong enough, I see..?]
+
+A shadow-like humanoid with magenta eyes and a mouth emerges from (text-colour:orange)[Johnathan's] body.
+
+(text-colour:magenta)["I'LL JUST HAVE TO TAKE YOU ON MYSELF!"]
+
+(text-colour:cyan)["Who are you?!"]
+
+(text-colour:magenta)["I am Culpa, little bug."]
+
+The entire ruins shake and start to crumble.
+
+(text-colour:magenta)["I want this to be a fair fight."]
+
+(text-colour:magenta)[Culpa] healed everyone to max HP!
+
+(text-colour:magenta)["Are you ready? It is time to face your sins."]
+
+Seems like this is the TRUE final battle...
+
+(text-colour:orange)["I was wrong... it manipulated me, not her. I must help.]
+
+[[Command Menu: The TRUE Final Battle!]] 
+
+(set:$finalBattle to true)
+(set:$enemy to "Culpa")
+(set:$andrewHP to 100)
+(set:$andrewDown to false)
+(set:$andrewActed to false)
+(set:$lateefHP to 150)
+(set:$lateefDown to false)
+(set:$lateefActed to false)
+(set:$meresankhHP to 120)
+(set:$meresankhDown to false)
+(set:$meresankhActed to false)
+(set:$lateefBiteReady to true)
+(set:$lateefProtectReady to true)
+(set:$andrewOomphReady to true)
+
+
+:: Ancient Protection {"position":"600,700","size":"100,100"}
+
+
+
+:: Ancient Protection {"position":"600,700","size":"100,100"}
+(set:$lateefActed to true)(text-colour:cyan)[Lateef casts a spell of protection, but isn't confident.
+
+Everyone takes $lateefAncientProtection less damage!]
+(set:$lateefAncientProtectionTimer to 3)(if:$lateefAncientProtectionTimer is 3 and $lateefProtectReady is true)[(set:$johnathanAttack to $johnathanAttack - $lateefAncientProtection)(set:$lateefProtectReady to false)]
+
+[[Command Menu: The Final Battle...]]
+
+
+:: Attack {"position":"300,700","size":"100,100"}
+
+
+
+:: Attack {"position":"300,700","size":"100,100"}
+(set:$andrewActed to true)Andrew attacks... but doesn't seem comitted.
+
+(text-colour:orange)[Johnathan] takes $andrewAttack damage!
+(set:$johnathanHP to $johnathanHP - $andrewAttack )
+
+[[Command Menu: The Final Battle...]]
+
+
+:: Bug Bite {"position":"500,700","size":"100,100"}
+
+
+
+:: Bug Bite {"position":"500,700","size":"100,100"}
+(set:$lateefActed to true)(text-colour:cyan)[Lateef bites, but is unsure...]
+(set:$lateefBugBiteTimer to 3)
+(text-colour:orange)[$johnathan] takes $lateefBugBite damage!
+(if:$lateefBugBiteTimer is 3 and $lateefBiteReady is true)[(set:$johnathanAttack to $johnathanAttack - $lateefBugBiteLower)]
+(text-colour:cyan)[The bite reduced the enemy's attack by $lateefBugBiteLower]
+(set:$johnathanHP to $johnathanHP - $lateefBugBite)(set:$lateefBiteReady to false)
+
+[[Command Menu: The Final Battle...]]
+
+
+:: Command Menu: The Final Battle... {"position":"400,200","size":"100,100"}
+(if:$johnathanHP > 0)[(text-colour:orange)[Johnathan] HP: $johnathanHP
+(if:$andrewDown is true)[(set:$andrewActed to true and $andrewHP to 0)](if:$lateefDown is true)[(set:$lateefActed to true and $lateefHP to 0)](if:$meresankhDown is true)[(set:$meresankhActed to true and $meresankhHP to 0)](if:$andrewHP > 100)[(set:$andrewHP to 100)](if:$lateefHP > 150)[(set:$lateefHP to 150)](if:$meresankhHP > 120)[(set:$meresankhHP to 120)]
+Andrew's HP: (if:$andrewHP > 0)[$andrewHP/100](else-if:$andrewHP <= 0)[DOWN(set:$andrewDown to true)]
+(text-colour:cyan)[Lateef's HP: (if:$lateefHP > 0)[$lateefHP/150](else-if:$lateefHP <= 0)[DOWN(set:$lateefDown to true)]]
+(text-colour:green)[Meresankh's HP: (if:$meresankhHP > 0)[$meresankhHP/120](else-if:$meresankhHP <= 0)[DOWN(set:$meresankhDown to true)]]
+(if:$andrewDown is false)+(if:$andrewActed is false)[Andrew's commands:
+[[Attack]]
+[[Oomph]]
+](if:$lateefDown is false)+(if:$lateefActed is false)[Lateef's commands:
+[[Bug Bite]]
+[[Ancient Protection]]
+](if:$meresankhDown is false)+(if:$meresankhActed is false)[Meresankh's commands:
+[[Healing Strike]]
+[[Refresh]]
+] (if:$andrewActed is true)+(if:$lateefActed is true)+(if:$meresankhActed is true)[
+[[Johnathan's turn]]]
+
+(if:$johnathanHP < 250)[(text-colour:orange)[Johnathan coughs up a puddle of black puss..?]]
+(if:$andrewOomphTimer is 0)[Andrew broke focus!](if:$lateefBugBiteTimer is 0)[The enemy recovered from the bite!](if:$lateefAncientProtectionTimer is 0)[The protective aura wore off!]](if:$johnathanHP <= 0)[Victory! Team Faithfullness won! (text-colour:orange)[Johnathan] lost!
+
+[[Aftermath]]]
+
+
+:: Command Menu: The TRUE Final Battle! {"position":"700,200","size":"100,100"}
+(if:$enemyHP > 0)[(text-colour:red)[$enemy] HP: $enemyHP
+(if:$andrewDown is true)[(set:$andrewActed to true)](if:$lateefDown is true)[(set:$lateefActed to true)](if:$meresankhDown is true)[(set:$meresankhActed to true)](if:$andrewHP > 100)[(set:$andrewHP to 100)](if:$lateefHP > 150)[(set:$lateefHP to 150)](if:$meresankhHP > 120)[(set:$meresankhHP to 120)]
+Andrew's HP: (if:$andrewHP > 0)[$andrewHP/100](else-if:$andrewHP <= 0)[DOWN(set:$andrewDown to true)]
+(text-colour:cyan)[Lateef's HP: (if:$lateefHP > 0)[$lateefHP/150](else-if:$lateefHP <= 0)[DOWN(set:$lateefDown to true)]]
+(text-colour:green)[Meresankh's HP: (if:$meresankhHP > 0)[$meresankhHP/120](else-if:$meresankhHP <= 0)[DOWN(set:$meresankhDown to true)]]
+(if:$andrewDown is false)+(if:$andrewActed is false)[Andrew's commands:
+[[T. Attack]]
+[[T. Oomph]]
+](if:$lateefDown is false)+(if:$lateefActed is false)[Lateef's commands:
+[[T. Bug Bite]]
+[[T. Ancient Protection]]
+](if:$meresankhDown is false)+(if:$meresankhActed is false)[Meresankh's commands:
+[[T. Healing Strike]]
+[[T. Refresh]]
+] 
+(if:$andrewActed is true)+(if:$lateefActed is true)+(if:$meresankhActed is true)[[Johnathan's turn]]]
+
+(if:$andrewOomphTimer is 0)[Andrew broke focus!](if:$lateefBugBiteTimer is 0)[The enemy recovered from the bite!](if:$lateefAncientProtectionTimer is 0)[The protective aura wore off!]
+(if:$enemyHP <= 0)[Victory! Team Faithfullness won! (text-colour:red)[$enemy] lost!
+
+[[After-Aftermath]]]
+
+
+:: Culpa's turn {"position":"600,400","size":"100,100"}
+(if:$enemyAttack < 0)[(set:$enemyAttack to 0)](if:(random:1,4) is 1)[(text-colour:orange)[$enemy] attacks Andrew! Andrew takes $enemyAttack damage!(set:$andrewHP to $andrewHP - $enemyAttack)](else-if: is 2)[(text-colour:orange)[$enemy] attacks Lateef! Lateef takes $enemyAttack damage! (set:$lateefHP to $lateefHP - $enemyAttack)](else-if: is 3)[(text-colour:orange)[$enemy] attacks Meresankh! Meresankh takes $enemyAttack damage! (set:$meresankhHP to $meresankhHP - $enemyAttack)](else-if: is 4)[(text-colour:orange)[$enemy] says something in a mysterious dialect... you all have a bad feeling. Everyone takes (round:$enemyAttack/4) damage! (set:$andrewHP to $andrewHP - (round:$enemyAttack/4))(set:$lateefHP to $lateefHP - (round:$enemyAttack/4))(set:$meresankhHP to $meresankhHP - (round:$enemyAttack/4))]
+
+[[Command Menu: The TRUE Final Battle!]] 
+
+(set:$lateefBugBiteTimer to $lateefBugBiteTimer - 1)(set:$lateefAncientProtectionTimer to $lateefAncientProtectionTimer - 1)
+(set:$andrewOomphTimer to $andrewOomphTimer - 1)
+(set:$andrewActed to false)(set:$lateefActed to false)(set:$meresankhActed to false)
+(if:$andrewOomphTimer is 0)[(set:$andrewAttack to $andrewAttack - $andrewOomph)(set:$andrewOomphReady to true)]
+(if:$lateefBugBiteTimer is 0)[(set:$enemyAttack to $enemyAttack + $lateefBugBite)(set:$lateefBiteReady to true)](if:$lateefAncientProtectionTimer is 0)[(set:$enemyAttack to $enemyAttack + $lateefAncientProtection) (set:$lateefProtectReady to true)]
+(if:$andrewHP > 0)[(set:$andrewDown to false)]
+(if:$lateefHP > 0)[(set:$lateefDown to false)]
+(if:$meresankhHP > 0)[(set:$meresankhDown to false)]
+
+
+:: Healing Strike {"position":"700,700","size":"100,100"}
+(set:$meresankhActed to true)(text-colour:green)[Meresankh attacks with her staff... but seems doubtful.]
+(set:$johnathanHP to $johnathanHP - $meresankhHealingStrike)(set:$andrewHP to $andrewHP + (round:$meresankhHealingStrike/4))(set:$lateefHP to $lateefHP + (round:$meresankhHealingStrike/4))(set:$meresankhHP to $meresankhHP + (round:$meresankhHealingStrike/4))
+[[Command Menu: The Final Battle...]]
+
+
+:: Johnathan's turn {"position":"500,400","size":"100,100"}
+(if:$finalBattle is false)[(if:(random:1,5) is 1 or 2)[(text-colour:orange)[$johnathan] attacks Andrew! Andrew takes $johnathanAttack damage!(set:$andrewHP to $andrewHP - $johnathanAttack)](else-if: is 3)[(text-colour:orange)[$johnathan] attacks Lateef! Lateef takes $johnathanAttack damage! (set:$lateefHP to $lateefHP - $johnathanAttack)](else-if: is 4)[(text-colour:orange)[$johnathan] attacks Meresankh! Meresankh takes $johnathanAttack damage! (set:$meresankhHP to $meresankhHP - $johnathanAttack)](else-if:is 5 and $johnathanHP <= 500)[(text-colour:orange)[Johnathan] healed himself... somehow. (set:$johnathanHP to $johnathanHP + 100)](else:)[(text-colour:orange)[Johnathan] says something in a mysterious dialect... you all have a bad feeling. Everyone takes 20 damage! (set:$andrewHP to $andrewHP - 20)(set:$lateefHP to $lateefHP - 20)(set:$meresankhHP to $meresankhHP - 20)]
+
+[[Command Menu: The Final Battle...]]](else:)[(if:(random:1,6) is 1)[(text-colour:orange)[Johnathan] attacks! (text-colour:magenta)[Culpa] takes $johnathanAttack damage! (set:$enemyHP to $enemyHP - $johnathanAttack)](else-if: is 2)[(text-colour:orange)[Johnathan] protects the party! Everyone takes 50 less damage! (set:$enemyAttack to $enemyAttack - $johnathanDefend)(set:$johnathanDefend to $johnathanDefend + 50)](else-if:is 3)[(text-colour:orange)[Johnathan] heals the party! (set:$andrewHP to $andrewHP + $johnathanHeal)(set:$johnathanHeal to $johnathanHeal + 50)(set:$lateefHP to $lateefHP + $johnathanHeal)(set:$meresankhHP to $meresankhHP + $johnathanHeal)](else:)[(text-colour:orange)[Johnathan] repented! The enemy's attack went back to 0!(set:$enemyAttack to 0)]
+
+[[Culpa's turn]]]
+(set:$lateefBugBiteTimer to $lateefBugBiteTimer - 1)(set:$lateefAncientProtectionTimer to $lateefAncientProtectionTimer - 1)
+(set:$andrewOomphTimer to $andrewOomphTimer - 1)
+(set:$andrewActed to false)(set:$lateefActed to false)(set:$meresankhActed to false)
+(if:$andrewOomphTimer is 0)[(set:$andrewAttack to $andrewAttack - $andrewOomph)(set:$andrewOomphReady to true)]
+(if:$lateefBugBiteTimer is 0)[(set:$johnathanAttack to $johnathanAttack + $lateefBugBite)(set:$lateefBiteReady to true)](if:$lateefAncientProtectionTimer is 0)[(set:$johnathanAttack to $johnathanAttack + $lateefAncientProtection) (set:$lateefProtectReady to true)]
+(if:$andrewHP > 100)[(set:$andrewHP to 100)](if:$lateefHP > 150)[(set:$lateefHP to 150)](if:$meresankhHP > 120)[(set:$meresankhHP to 120)]
+
+
+:: Oomph {"position":"400,700","size":"100,100"}
+
+
+
+:: Oomph {"position":"400,700","size":"100,100"}
+(set:$andrewActed to true) Andrew tried to psyched himself up, and increased his attack by $andrewOomph...
+(set:$andrewOomphTimer to 3)(if:$andrewOomphTimer is 3 and $andrewOomphReady is true)[(set:$andrewAttack to $andrewAttack + $andrewOomph)](set:$andrewOomphReady to false)
+
+[[Command Menu: The Final Battle...]]
+
+
+:: Pull him away with you {"position":"600,100","size":"100,100"}
+You grab him by the arm and run with him, despite his protests. You all successfully make it out of the ruins alive, and go back home. (text-colour:orange)[Johnathan] suprises Maria with a hug, and goes back to live with them.
+
+A few days later... all the issues in their household are resolved. You live with (text-colour:cyan)[Lateef] and (text-colour:green)[Meresankh] happily. You then decide to take a break from adventuring to maybe start a family with (text-colour:green)[Meresankh]. 
+
+(text-colour:yellow)[Game Over - Good Ending Achieved!]
+
+
+:: Refresh {"position":"800,700","size":"100,100"}
+(set:$meresankhActed to true)(if:$andrewHP does not match 100 and $andrewHP < $lateefHP and $meresankhHP)[(text-colour:green)[Meresankh healed Andrew!] (set:$andrewHP to $andrewHP + $meresankhHeal)](else-if:$lateefHP does not match 150 and $lateefHP < $andrewHP and $meresankhHP)[(text-colour:green)[Meresankh healed Lateef!](set:$lateefHP to $lateefHP + $meresankhHeal)](else-if:$meresankhHP does not match 120 and $meresankh < $andrewHP and $meresankhHP)[(text-colour:green)[Meresankh healed herself!](set:$meresankhHP to $meresankhHP + $meresankhHeal)](else:)[(text-colour:green)[Everyone is at max HP!]]
+
+[[Command Menu: The Final Battle...]]
+
+
+:: Slay {"position":"800,0","size":"100,100"}
+(text-colour:orange)[Johnathan swings the sword, banishing the demon forever. The ruins crumble about him, and he sits in the midst of it. He looks up to the sky, and accepts his fate as he gets crushed under the ruin's collapsing ceiling.] 
+
+Meanwhile, Team Faithfulness escapes easily. You three travel back to Maria's house, and she opens the door. You tell her the unfortunate news, and she breaks down crying. You still have hope that your brother's sacrifice was not in vain.
+
+A few days later as you are sitting on the couch with (text-colour:cyan)[Lateef] and (text-colour:green)[Meresankh] watching the news, some breaking news comes through.
+
+(text-colour:blue)["Breaking News! Absent parents are starting to return to their kids and families! Somehow, the bond has been mended between divorced couples, and they've started coming back together. Let's go to our reporter..."]
+
+With that said, you look up to the heavens. It seems as if... only for a moment... you could see (text-colour:orange)[Johnathan]'s face winking down at you. You then silently mourn is loss, but know that it was not in vain.
+
+(text-colour:yellow)[Game Over - True Ending Achieved!]
+
+
+:: Slaying the Demon {"position":"550,300","size":"100,100"}
+(text-colour:magenta)[Culpa HP: 10]
+(text-colour:orange)[Johnathan's Actions]
+[[Slay]]
+
+
+:: T. Ancient Protection {"position":"600,800","size":"100,100"}
+(set:$lateefActed to true)(text-colour:cyan)[Lateef casts a spell of protection with renewed confidence!.
+
+Everyone takes $lateefAncientProtection less damage!]
+(set:$lateefAncientProtectionTimer to 3)(if:$lateefAncientProtectionTimer is 3 and $lateefProtectReady is true)[(set:$enemyAttack to $enemyAttack - $lateefAncientProtection)(set:$lateefProtectReady to false)]
+
+[[Command Menu: The TRUE Final Battle!]]
+
+
+:: T. Attack {"position":"300,800","size":"100,100"}
+(set:$andrewActed to true)Andrew attacks with renewed vigor!
+
+(text-colour:orange)[$enemy] takes $andrewAttack damage!
+(set:$enemyHP to $enemyHP - $andrewAttack)
+
+[[Command Menu: The TRUE Final Battle!]]
+
+(set:$enemyAttack to $enemyAttack + $andrewAttack)
+
+
+:: T. Bug Bite {"position":"500,800","size":"100,100"}
+(set:$lateefActed to true)(text-colour:cyan)[Lateef bites with a renewed sense of justice!]
+(set:$lateefBugBiteTimer to 3)
+(text-colour:red)[$enemy] takes $lateefBugBite damage!
+(if:$lateefBugBiteTimer is 3 and $lateefBiteReady is true)[(set:$enemyAttack to $enemyAttack - $lateefBugBiteLower)]
+(text-colour:cyan)[The bite reduced the enemy's attack by $lateefBugBiteLower]
+(set:$enemyHP to $enemyHP - $lateefBugBite)(set:$lateefBiteReady to false)
+
+[[Command Menu: The TRUE Final Battle!]]
+
+(set:$enemyAttack to $enemyAttack + $lateefBugBite)
+
+
+:: T. Healing Strike {"position":"700,800","size":"100,100"}
+(set:$meresankhActed to true)(text-colour:green)[Meresankh attacks with her staff bravely!]
+
+(text-colour:red)[$enemy] takes $meresankhHealingStrike damage!
+(set:$enemyHP to $enemyHP - $meresankhHealingStrike)(set:$andrewHP to $andrewHP + (round:$meresankhHealingStrike/4))(set:$lateefHP to $lateefHP + (round:$meresankhHealingStrike/4))(set:$meresankhHP to $meresankhHP + (round:$meresankhHealingStrike/4))
+[[Command Menu: The TRUE Final Battle!]]
+
+(set:$enemyAttack to $enemyAttack + $meresankhHealingStrike)
+
+
+:: T. Oomph {"position":"400,800","size":"100,100"}
+(set:$andrewActed to true) Andrew psyched himself up, and doubled his attack!
+
+(set:$andrewOomphTimer to 3)(if:$andrewOomphTimer is 3 and $andrewOomphReady is true)[(set:$andrewAttack to $andrewAttack + $andrewAttack)](set:$andrewOomphReady to false)
+
+[[Command Menu: The TRUE Final Battle!]]
+
+
+:: T. Refresh {"position":"800,800","size":"100,100"}
+(set:$meresankhActed to true)(if:$andrewHP does not match 100 and $andrewHP < $lateefHP and $meresankhHP)[(text-colour:green)[Meresankh healed Andrew!] (set:$andrewHP to $andrewHP + $meresankhHeal)](else-if:$lateefHP does not match 150 and $lateefHP < $andrewHP and $meresankhHP)[(text-colour:green)[Meresankh healed Lateef!](set:$lateefHP to $lateefHP + $meresankhHeal)](else-if:$meresankhHP does not match 120 and $meresankh < $andrewHP and $meresankhHP)[(text-colour:green)[Meresankh healed herself!](set:$meresankhHP to $meresankhHP + $meresankhHeal)](else:)[(text-colour:green)[Everyone is at max HP!]]
+
+[[Command Menu: The TRUE Final Battle!]]
+
+
+:: The Finale... {"position":"300,0","size":"100,100"}
+You three approach Johnathan.
+
+(text-colour:orange)["Why must you turn on me, brother? You don't understand the stress I was put through. You help my wife in her selfish desires. I know it was her who sent for you to help me."]
+
+(text-colour:cyan)["You left her and your son for no good reason! You're the worst dad ever! Do you not understand the true meaning of family?"]
+
+(text-colour:orange)["You are foolish, little bug. I do. They were never my true family. And you, my brother, I'm not sure if you are, either."]
+
+(text-colour:green)["You loved your family. They are your true family. They are still holding out hope for you to return and redeem yourself."]
+
+(text-colour:orange)["So does holding out hope mean manipulating my brother to get an artifact that just might change my mind?!"]
+
+.(text-colour:cyan)[.](text-colour:green)[.]
+
+[[Command Menu: The Final Battle...]]
+
+(set:$andrewHP to 100)
+(set:$andrewDown to false)
+(set:$andrewActed to false)
+(set:$andrewAttack to 50)
+(set:$andrewOomph to 20)
+(set:$andrewOomphTimer to -1)
+(set:$andrewOomphReady to true)
+(set:$lateefHP to 150)
+(set:$lateefDown to false)
+(set:$lateefActed to false)
+(set:$lateefBugBite to 20)
+(set:$lateefBugBiteTimer to -1)
+(set:$lateefBugBiteLower to 10)
+(set:$lateefBiteReady to true)
+(set:$lateefAncientProtection to 20)
+(set:$lateefAncientProtectionTimer to -1)
+(set:$lateefProtectReady to true)
+(set:$meresankhHP to 120)
+(set:$meresankhDown to false)
+(set:$meresankhActed to false)
+(set:$meresankhHealingStrike to 40)
+(set:$meresankhHeal to 60)
+(set:$johnathanHP to 1000) 
+(set:$johnathanAttack to 80)
+(set:$johnathan to "Johnathan")
+(set:$finalBattle to false)
+(set:$enemyHP to 2000)
+(set:$enemyAttack to 0)
+
+
+:: Warn him {"position":"500,100","size":"100,100"}
+You tell him that if we don't run now, you'd all be dead.
+
+(text-colour:orange)["Yes. I know. However, I can't let this demon live and ruin more families. It must be put to death. I will be the sacrifice to end all other broken homes due to abandonment."]
+
+You tell him that he can't do that, and to remember his wife and son.
+
+(text-colour:orange)["I've already failed them. Let my sacrifice be my attonement."]
+
+You nod and solemly leave with (text-colour:cyan)[Lateef] and (text-colour:green)[Meresankh].
+
+(text-colour:orange)["Hey, Drew? Don't forget to take care of Maria, ok?"
+
+He chuckles.] You tell him that you'll tell them of his sacrifice, and leave.
+
+[[Slaying the Demon]]
