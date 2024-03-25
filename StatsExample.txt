@@ -1,0 +1,8 @@
+CharacterStats = {
+	"maxHP": 0,
+	"HP": 0,
+	"AM": 0,
+	"BA": 0,
+	"DD": 0,
+	"BD": 0,
+}
